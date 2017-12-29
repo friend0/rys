@@ -40,7 +40,7 @@ export default class Example extends React.Component {
                             <NavItem>
                                 <NavLink href="https://github.com/friend0">Github</NavLink>
                             </NavItem>
-                            <UncontrolledDropdown nav innavbar>
+                            <UncontrolledDropdown nav>
                                 <DropdownToggle nav caret>
                                     Options
                                 </DropdownToggle>
