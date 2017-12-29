@@ -3,6 +3,8 @@ logs
 npm-debug.log*
 .DS_Store
 
+.idea/
+
 coverage
 node_modules
 build
