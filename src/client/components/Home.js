@@ -12,6 +12,10 @@ class Home extends Component {
         <Navigation/>
         <Header/>
           <div className="Site-content">
+              <p className="Home-intro">
+                  To get started, edit <code>src/App.js</code> or{' '}
+                  <code>src/Home.js</code> and save to reload.
+              </p>
               <ul className="Home-resources">
                   <li>
                       <a href="https://github.com/jaredpalmer/razzle">Docs</a>
@@ -23,7 +27,8 @@ class Home extends Component {
                       <a href="https://palmer.chat">Community Slack</a>
                   </li>
               </ul>
-              <iframe src="http://cdn.knightlab.com/libs/timeline/latest/embed/index.html?source=0Aign3Td5MzLxdDBfMHpwVnoyZklIN0dPUVhySUVqVUE&amp;font=Bevan-PotanoSans&amp;maptype=toner&amp;lang=en&amp;height=800" width="100%" height="800" frameborder="0"></iframe>
+              <iframe title="timeline" src="http://cdn.knightlab.com/libs/timeline/latest/embed/index.html?source=0Aign3Td5MzLxdDBfMHpwVnoyZklIN0dPUVhySUVqVUE&amp;font=Bevan-PotanoSans&amp;maptype=toner&amp;lang=en&amp;height=800" width="100%" height="800" webkitallowfullscreen mozallowfullscreen allowfullscreen frameborder="0"></iframe>
+\
           </div>
           <div>
               <footer className='site-footer'>
