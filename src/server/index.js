@@ -7,12 +7,18 @@ import session from "express-session";
 import { renderToString } from "react-dom/server";
 import bodyParser from "body-parser";
 import routes from "./routes";
+import https from 'https';
+import http from 'http';
 
 const RedisStore = require("connect-redis")(session);
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST);
 
 const server = express();
 require("./authenticate")(server);
+
+
+http.createServer(server).listen();
+https.createServer({}, server).listen();
 
 server.use(
     session({

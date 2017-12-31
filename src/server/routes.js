@@ -30,7 +30,6 @@ router.get(
                 status: 200
             });
         } catch (e) {
-            console.log("There was an error handling this request", e);
             res.json({
                 message: "There was an error handling this request.",
                 status: 400
@@ -53,7 +52,6 @@ router.get(
                 status: 200
             });
         } catch (e) {
-            console.log("There was an error handling this request", e);
             res.json({
                 message: "There was an error handling this request.",
                 status: 400
@@ -65,15 +63,12 @@ router.get(
 router.post(
     "/api/users",
     asyncMiddleware(async (req, res, next) => {
-        /*
-      if there is an error thrown in getUserFromDb, asyncMiddleware
-      will pass it to next() and express will handle the error;
-    */
-        const insertResults = await db("users")
+        await db("users")
             .insert({ email: req.body.email, password: req.body.password })
             .returning("*");
-        // logger.info(insertResults)
-        res.json({ status: 200 });
+        res.json({ 
+            status: 200,
+        });
     })
 );
 
