@@ -7,8 +7,6 @@ import session from "express-session";
 import { renderToString } from "react-dom/server";
 import bodyParser from "body-parser";
 import routes from "./routes";
-import https from 'https';
-import http from 'http';
 
 const RedisStore = require("connect-redis")(session);
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST);
@@ -16,9 +14,6 @@ const assets = require(process.env.RAZZLE_ASSETS_MANIFEST);
 const server = express();
 require("./authenticate")(server);
 
-
-http.createServer(server).listen();
-https.createServer({}, server).listen();
 
 server.use(
     session({
@@ -73,15 +68,7 @@ server
                                   }">`
                                 : ""
                         }
-                        ${
-                            process.env.NODE_ENV === "production"
-                                ? `<script src="${
-                                      assets.client.js
-                                  }" defer></script>`
-                                : `<script src="${
-                                      assets.client.js
-                                  }" defer crossorigin></script>`
-                        }
+                        ${ process.env.NODE_ENV === "production" ? `<script src="${assets.client.js}" defer></script>` : `<script src="${assets.client.js}" defer crossorigin></script>`}
                     </head>
                     <body>
                         <div id="root">${markup}</div>
